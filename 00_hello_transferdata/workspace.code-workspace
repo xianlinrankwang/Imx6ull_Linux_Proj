@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"io.h": "c",
+			"random.h": "c",
+			"init.h": "c"
+		}
+	}
+}
