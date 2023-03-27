@@ -1,2 +1,2 @@
-/home/alientek/alpha/alientek-zzk/demo/linux_learn/gpio_led/led_drv.ko
-/home/alientek/alpha/alientek-zzk/demo/linux_learn/gpio_led/led_drv.o
+/home/alientek/alpha/alientek-zzk/demo/linux_learn/Imx6ull_Linux_Proj/gpio_led/led_drv.ko
+/home/alientek/alpha/alientek-zzk/demo/linux_learn/Imx6ull_Linux_Proj/gpio_led/led_drv.o

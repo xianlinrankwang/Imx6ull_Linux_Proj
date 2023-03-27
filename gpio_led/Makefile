@@ -1,4 +1,5 @@
-KERN_DIR = /home/alientek/alpha/alientek-zzk/kernel-zzk/linux-imx-rel_imx_4.1.15_2.1.0_ga_alientek
+KERN_DIR = /home/alientek/alpha/alientek-zzk/kernel-zzk/Linux_kernel_imx6ull/linux-imx-rel_imx_4.1.15_2.1.0_ga_alientek
+
 
 all:
 	make -C $(KERN_DIR) M=`pwd` modules 

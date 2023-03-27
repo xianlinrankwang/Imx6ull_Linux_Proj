@@ -33,14 +33,14 @@ int main(int argc, char **argv)
     {
         // write
         len = write(fd, argv[2], strlen(argv[2])+1);
-        printf("write ret = %d\n", len);
+        printf("write ret = %d\r\n", len);
     }
     else
     {
         // read
         len = read(fd, buf, 100);
         buf[99] = '\0';
-        printf("read str : %s\n", buf);
+        printf("read str : %s\r\n", buf);
     }
 
     // close

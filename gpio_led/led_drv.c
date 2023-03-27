@@ -29,7 +29,7 @@ struct  gpio_desc
 
 /*定义设备结构体数组*/
 static struct gpio_desc gpios[2] = {
-        {131, 0 , "led0",},
+        {20, 0 , "led0",},
 
 };
 
@@ -175,7 +175,7 @@ static void __exit gpio_drv_exit(void)
 module_init(gpio_drv_init);
 module_exit(gpio_drv_exit);
 
-// MODULE_LICENSE("GPL");
+MODULE_LICENSE("GPL");
 #endif
 
 
