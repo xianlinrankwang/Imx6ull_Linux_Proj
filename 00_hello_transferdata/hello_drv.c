@@ -91,20 +91,40 @@ static struct file_operations hello_drv =
 /*2.register_chrdev*/
 static int hello_init(void)
 {
-	major = register_chrdev(0,"hello_drv",&hello_drv);
+	/*1.注册字符设备
+	register_chrdev用于注册字符设备，三个参数，
+	major 主设备号
+	name 设备名称
+	fops 结构体类型指针，设备操作函数集合变量
+	*/
+	major = register_chrdev(0, "hello_drv", &hello_drv);
 
+	if(major < 0)
+	{
+		printk("register dev failed!\r\n");
+		return -1;
+	}
 	// alloc_chrdev_region(&hello_drv,0,1,"hello_drv");
 
+	/*2.class_create创建设备class类
+	THIS_MODULE
+	name 类名称
+	*/
 	hello_class = class_create(THIS_MODULE,"hello_class");
+	if (IS_ERR(hello_class)) 
+	{
+		printk("failed to allocate class\n");
+		return PTR_ERR(hello_class);
+	}
 
-		if (IS_ERR(hello_class)) 
-		{
-			printk("failed to allocate class\n");
-			return PTR_ERR(hello_class);
-		}
-
-
-	 device_create(hello_class,NULL,MKDEV(major,0),NULL,"hello"); 		/*/dev*/
+	/* 3.创建设备device_create
+		1.hello_class 创建的设备类
+		2.parent 父设备，一般没有父设备也就是null
+		3.设备号
+		4.null
+		5.设备名称
+	*/
+	device_create(hello_class, NULL, MKDEV(major,0), NULL, "hello"); 		/*/dev*/
 	
 	return 0;
 
