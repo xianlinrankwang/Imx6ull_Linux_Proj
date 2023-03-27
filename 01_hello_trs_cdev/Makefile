@@ -1,12 +1,13 @@
-KERNELDIR = /home/alientek/alpha/alientek-zzk/kernel-zzk/linux-imx-rel_imx_4.1.15_2.1.0_ga_alientek
-CURRENT_PATH := $(shell pwd)
+KERN_DIR = /home/alientek/alpha/alientek-zzk/kernel-zzk/linux-imx-rel_imx_4.1.15_2.1.0_ga_alientek
 
-obj-m := hello_drv.o
 
-build: kernel_modules
-
-kernel_modules:
-	$(MAKE) -C $(KERNELDIR) M=$(CURRENT_PATH) modules
+all:
+	make -C $(KERN_DIR) M=`pwd` modules 
+	$(CROSS_COMPILE)gcc -o hello_test hello_test.c 
 
 clean:
-	$(MAKE) -C $(KERNELDIR) M=$(CURRENT_PATH) clean
+	make -C $(KERN_DIR) M=`pwd` modules clean
+	rm -rf modules.order
+	rm -f hello_test
+
+obj-m	+= hello_drv.o
