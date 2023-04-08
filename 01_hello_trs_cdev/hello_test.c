@@ -5,6 +5,12 @@
 #include <stdio.h>
 #include <string.h>
 
+
+
+
+
+
+
 /* 写: ./hello_test /dev/xxx 100ask
  * 读: ./hello_test /dev/xxx
  */
@@ -36,7 +42,8 @@ int main(int argc, char **argv)
     }
     else if(3 == argc)
     {
-        len = write(fd, argv[2], sizeof(argv[2]));
+        len = write(fd, argv[2], strlen(argv[2])+1);
+
         printf("write len : %d\n", len);
     }
     close(fd);
